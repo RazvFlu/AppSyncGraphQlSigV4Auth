@@ -1,0 +1,24 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+input ReadData {
+    userId: String!
+}
+
+input WriteDataInput {
+    userId: String
+}
+
+type WriteDataOutput {
+    userId: String
+}
+
+type Mutation {
+    write(input: WriteDataInput): WriteDataOutput
+}
+
+type Query {
+    read(input: ReadData): [WriteDataOutput]
+}
